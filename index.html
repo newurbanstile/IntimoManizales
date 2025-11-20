@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Lubricantes</title>
+    <!-- Fuente segura desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        /* Resto de estilos con fuente definida */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif; /* Usar la fuente importada */
+        }
+
+        body {
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+            padding-left: 240px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100%;
+            background: #000000;
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-links {
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 400; /* Normal */
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: block;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background: #2d2d2d;
+            color: #ffb6c1; /* Morado claro */
+            font-weight: 700; /* Negrita */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            padding-top: 7rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #ffb6c1;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .product-name {
+            color: #ff69b4; /* Rosa intenso */
+            font-size: 1.2rem;
+            font-weight: 700; /* Negrita */
+            margin-bottom: 0.5rem;
+        }
+
+        .product-category {
+            color: #888888; /* Gris oscuro */
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        #detailsModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background: #2d2d2d;
+            margin: 5% auto;
+            padding: 2rem 3rem;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #ffffff;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #ffb6c1;
+        }
+
+        .specs-list h3 {
+            color: #ff69b4;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .specs-list li {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .specs-list li::before {
+            content: "?";
+            color: #4CAF50;
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-section {
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid #333333;
+        }
+
+        .contact-section h2 {
+            color: #ffb6c1;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #4CAF50; /* Verde */
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+            font-size: 1rem;
+            font-weight: 400;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #45a049; /* Verde más oscuro */
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-left: 0;
+            }
+
+            .navbar {
+                display: none; /* Opcional: ocultar menú en móviles */
+            }
+
+            .container {
+                padding: 1rem;
+                padding-top: 2rem;
+            }
+
+            .contact-section {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú fijo izquierdo -->
+    <div class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link">Menú</a></li>
+            <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="header" id="catalogo">
+            <h1>Tu Tienda de Lubricantes</h1>
+            <p>Productos de calidad para tu bienestar sexual</p>
+        </div>
+
+        <!-- Grid de productos -->
+        <div class="product-grid" id="productGrid">
+            <!-- Producto 1 -->
+            <div class="product-card" onclick="showDetails(1)">
+                <img src="https://via.placeholder.com/300x180?text=Lubricante+Natural" alt="Lubricante Natural" class="product-image">
+                <h3 class="product-name">Lubricante Bio Natural</h3>
+                <p class="product-category">Lubricantes Naturales</p>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card" onclick="showDetails(2)">
+                <img src="https://via.placeholder.com/300x180?text=Lubricante+Termosensible" alt="Lubricante Termosensible" class="product-image">
+                <h3 class="product-name">Lubricante Termosensible</h3>
+                <p class="product-category">Innovadores</p>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card" onclick="showDetails(3)">
+                <img src="https://via.placeholder.com/300x180?text=Lubricante+Hipoalergico" alt="Lubricante Hipoalérgico" class="product-image">
+                <h3 class="product-name">Lubricante Hipoalérgico</h3>
+                <p class="product-category">Para Pieles Sensibles</p>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card" onclick="showDetails(4)">
+                <img src="https://via.placeholder.com/300x180?text=Lubricante+Extra+Duradero" alt="Lubricante Extra Duradero" class="product-image">
+                <h3 class="product-name">Lubricante Extra Duradero</h3>
+                <p class="product-category">Long Lasting</p>
+            </div>
+        </div>
+
+        <!-- Sección Contacto -->
+        <div class="contact-section" id="contacto">
+            <h2>Contacto</h2>
+            <p class="contact-info">¿Tienes preguntas? Contáctanos por WhatsApp:</p>
+            <a href="https://wa.me/[TU_NUMERO_WHATSAPP]" class="whatsapp-btn" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                    <path d="M13 7.078a.96.96 0 1 1 .011 1.74.92.92 0 0 1-.011-1.74zm-.192-.74l-.135-.756a.5.5 0 0 1 .083-.327l.3-.323a.5.5 0 0 1 .688 0l.3.323a.5.5 0 0 1-.083.327l-.135.756a.5.5 0 0 1-.642 0zm.655 1.33a.5.5 0 1 1-.801.393l-.047.865-.865.047-.865-.047.047-.865a.5.5 0 0 1.801-.393l.865.047.865-.047z"/>
+                </svg>
+                Contactar por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Botón WhatsApp fijo -->
+    <a href="https://wa.me/[TU_NUMERO_WHATSAPP]" class="whatsapp-btn" id="fixedWhatsApp" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13 7.078a.96.96 0 1 1 .011 1.74.92.92 0 0 1-.011-1.74zm-.192-.74l-.135-.756a.5.5 0 0 1 .083-.327l.3-.323a.5.5 0 0 1 .688 0l.3.323a.5.5 0 0 1-.083.327l-.135.756a.5.5 0 0 1-.642 0zm.655 1.33a.5.5 0 1 1-.801.393l-.047.865-.865.047-.865-.047.047-.865a.5.5 0 0 1.801-.393l.865.047.865-.047z"/>
+        </svg>
+        Contactar
+    </a>
+
+    <!-- Modal de detalles -->
+    <div id="detailsModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeDetails()">&times;</span>
+            <h2 id="modalProductName">Detalle del Producto</h2>
+            <div class="specs-list">
+                <h3>Especificaciones:</h3>
+                <ul id="modalSpecs"></ul>
+            </div>
+            <a href="" class="whatsapp-btn" id="whatsappLink">Contactar por WhatsApp para Obtener Detalles</a>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Lubricante Bio Natural", category: "Lubricantes Naturales", specs: [
+                "Base: Agua (sin aceite)",
+                "Volumen: 100ml",
+                "Ingredientes: Aloe vera y glicerina vegetal",
+                "Sin parabenos, fragancias artificiales o gluten",
+                "Ideal para uso diario y pieles sensibles",
+                "Compatibilidad: Con preservativos y juguetes de silicona"
+            ]},
+            { id: 2, name: "Lubricante Termosensible", category: "Innovadores", specs: [
+                "Base: Agua",
+                "Volumen: 120ml",
+                "Efecto: Se vuelve más espeso al calentarse",
+                "Fragancia: Desodorante suave",
+                "Sin parabenos ni componentes químicos irritantes",
+                "Ideal para estimulación intensa"
+            ]},
+            { id: 3, name: "Lubricante Hipoalérgico", category: "Para Pieles Sensibles", specs: [
+                "Base: Agua",
+                "Volumen: 90ml",
+                "Certificado hipoalérgico (pruebas dermatológicas)",
+                "Fórmula ultra-suave",
+                "Sin colorantes ni alcoholes",
+                "Compatibilidad: Todos los materiales"
+            ]},
+            { id: 4, name: "Lubricante Extra Duradero", category: "Long Lasting", specs: [
+                "Base: Agua",
+                "Volumen: 150ml",
+                "Duración: Hasta 3 horas de uso continuo",
+                "Fragancia: Aroma a frutas naturales",
+                "Sin parabenos, lactosa ni gluten",
+                "Limpio y fácil de eliminar"
+            ]}
+        ];
+
+        function showDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            const modal = document.getElementById('detailsModal');
+            
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalSpecs').innerHTML = product.specs.map(spec => `<li>${spec}</li>`).join('');
+            
+            const whatsappText = encodeURIComponent(`Hola, me interesa el lubricante: ${product.name}. ¿Tienen stock disponible?`);
+            document.getElementById('whatsappLink').href = `https://wa.me/[TU_NUMERO_WHATSAPP]?text=${whatsappText}`;
+            modal.style.display = 'block';
+        }
+
+        function closeDetails() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailsModal');
+            const modalContent = document.querySelector('.modal-content');
+            
+            if (event.target === modal && !modalContent.contains(event.target)) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
