@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat�logo Lubricantes</title>
+    <title>Intimo Manizales</title>
     <!-- Fuente segura desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
     <style>
-        /* Resto de estilos con fuente definida */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif; /* Usar la fuente importada */
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
             background: #1a1a1a;
             color: #ffffff;
             line-height: 1.6;
-            padding-left: 240px;
+            padding-left: 240px; /* Espacio para el navbar fijo */
         }
 
+        /* Banner/Logo al inicio */
+        .banner {
+            width: 100%; /* Ajustar al ancho completo */
+            max-height: 500px; /* Altura máxima */
+            margin: 2rem 0; /* Espacio arriba y abajo */
+        }
+
+        .logo-image {
+            width: 100%; /* Ocupar todo el ancho del banner */
+            height: auto; /* Mantener proporción */
+            object-fit: contain; /* Contener la imagen sin recortar */
+            border-radius: 11px; /* Bordes redondeados */
+        }
+
+        /* Menú fijo izquierdo (navbar) */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 240px;
-            height: 100%;
+            height: 500%;
             background: #000000;
             padding: 2rem 1rem;
             box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            z-index: 100; /* Asegurar que esté sobre el contenido */
         }
 
         .nav-links {
@@ -42,7 +57,7 @@
             color: #ffffff;
             text-decoration: none;
             font-size: 1.1rem;
-            font-weight: 400; /* Normal */
+            font-weight: 400;
             padding: 0.8rem 1rem;
             border-radius: 8px;
             transition: all 0.3s;
@@ -52,15 +67,16 @@
 
         .nav-link:hover {
             background: #2d2d2d;
-            color: #ffb6c1; /* Morado claro */
-            font-weight: 700; /* Negrita */
+            color: #ffb6c1;
+            font-weight: 700;
         }
 
+        /* Contenido principal (container) */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
-            padding-top: 7rem;
+            padding-top: 7rem; /* Espacio para el navbar y banner */
         }
 
         .header {
@@ -109,14 +125,14 @@
         }
 
         .product-name {
-            color: #ff69b4; /* Rosa intenso */
+            color: #ff69b4;
             font-size: 1.2rem;
-            font-weight: 700; /* Negrita */
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .product-category {
-            color: #888888; /* Gris oscuro */
+            color: #888888;
             font-size: 0.9rem;
             font-weight: 400;
             margin-bottom: 1rem;
@@ -173,7 +189,7 @@
         }
 
         .specs-list li::before {
-            content: "?";
+            content: "✓";
             color: #4CAF50;
             position: absolute;
             left: 0;
@@ -200,7 +216,7 @@
 
         .whatsapp-btn {
             display: inline-block;
-            background: #4CAF50; /* Verde */
+            background: #4CAF50;
             color: #ffffff;
             padding: 0.8rem 1.5rem;
             border-radius: 5px;
@@ -209,89 +225,251 @@
             transition: transform 0.2s, background-color 0.3s;
             font-size: 1rem;
             font-weight: 400;
+        }
+
+        .whatsapp-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Botón WhatsApp fijo */
+        .whatsapp-btn#fixedWhatsApp {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
         }
 
-        .whatsapp-btn:hover {
-            background: #45a049; /* Verde m�s oscuro */
-            transform: scale(1.05);
-        }
-
+        /* Responsividad para móviles */
         @media (max-width: 768px) {
             body {
-                padding-left: 0;
+                padding-left: 0; /* Ocultar padding izquierdo en móviles */
             }
 
             .navbar {
-                display: none; /* Opcional: ocultar men� en m�viles */
+                display: none; /* Ocultar navbar en móviles */
+            }
+
+            .banner {
+                margin: 1rem 0; /* Espacio más reducido en móviles */
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Solo una columna en móviles */
             }
 
             .container {
                 padding: 1rem;
-                padding-top: 2rem;
-            }
-
-            .contact-section {
-                margin-top: 2rem;
+                padding-top: 2rem; /* Menos padding en la parte superior */
             }
         }
     </style>
 </head>
 <body>
-    <!-- Men� fijo izquierdo -->
+    <!-- Menú fijo izquierdo (navbar) -->
     <div class="navbar">
         <ul class="nav-links">
-            <li><a href="#" class="nav-link">Men�</a></li>
-            <li><a href="#catalogo" class="nav-link">Cat�logo</a></li>
+            <li><a href="#" class="nav-link">Menú</a></li>
+            <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
             <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
     </div>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal (container) -->
     <div class="container">
+        <!-- Banner/Logo -->
+        <div class="banner">
+            <img src="https://imagizer.imageshack.com/img923/3153/3cTxZC.png" alt="Logo de Tu Tienda" class="logo-image">
+        </div>
+
+        <!-- Header principal -->
         <div class="header" id="catalogo">
-            <h1>Tu Tienda de Lubricantes</h1>
+            <h1>Intimo SexShop</h1>
             <p>Productos de calidad para tu bienestar sexual</p>
         </div>
 
-        <!-- Grid de productos -->
+        <!-- Grid de productos (mismo orden y productos que antes) -->
         <div class="product-grid" id="productGrid">
             <!-- Producto 1 -->
             <div class="product-card" onclick="showDetails(1)">
-                <img src="https://via.placeholder.com/300x180?text=Lubricante+Natural" alt="Lubricante Natural" class="product-image">
+                <img src="https://imagizer.imageshack.com/img923/9500/IRGErg.jpg" alt="Lubricante 1" class="product-image">
                 <h3 class="product-name">Lubricante Bio Natural</h3>
                 <p class="product-category">Lubricantes Naturales</p>
             </div>
 
             <!-- Producto 2 -->
             <div class="product-card" onclick="showDetails(2)">
-                <img src="https://via.placeholder.com/300x180?text=Lubricante+Termosensible" alt="Lubricante Termosensible" class="product-image">
+                <img src="https://imagizer.imageshack.com/img924/6583/6VvzS5.jpg" alt="Lubricante 2" class="product-image">
                 <h3 class="product-name">Lubricante Termosensible</h3>
                 <p class="product-category">Innovadores</p>
             </div>
 
             <!-- Producto 3 -->
             <div class="product-card" onclick="showDetails(3)">
-                <img src="https://via.placeholder.com/300x180?text=Lubricante+Hipoalergico" alt="Lubricante Hipoal�rgico" class="product-image">
-                <h3 class="product-name">Lubricante Hipoal�rgico</h3>
+                <img src="https://imagizer.imageshack.com/img923/1117/agKxUC.jpg" alt="Lubricante 3" class="product-image">
+                <h3 class="product-name">Lubricante Hipoalérgico</h3>
                 <p class="product-category">Para Pieles Sensibles</p>
             </div>
 
             <!-- Producto 4 -->
             <div class="product-card" onclick="showDetails(4)">
-                <img src="https://via.placeholder.com/300x180?text=Lubricante+Extra+Duradero" alt="Lubricante Extra Duradero" class="product-image">
+                <img src="https://imagizer.imageshack.com/img924/4916/LJJb31.jpg" alt="Lubricante 4" class="product-image">
                 <h3 class="product-name">Lubricante Extra Duradero</h3>
                 <p class="product-category">Long Lasting</p>
             </div>
+
+            <!-- Producto 5 -->
+            <div class="product-card" onclick="showDetails(5)">
+                <img src="https://imagizer.imageshack.com/img922/3376/0ArNOd.jpg" alt="Lubricante 5" class="product-image">
+                <h3 class="product-name">Lubricante Aromático</h3>
+                <p class="product-category">Aromáticos</p>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product-card" onclick="showDetails(6)">
+                <img src="https://imagizer.imageshack.com/img923/5726/xGASed.jpg" alt="Lubricante 6" class="product-image">
+                <h3 class="product-name">Lubricante Silencioso</h3>
+                <p class="product-category">Silenciosos</p>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="product-card" onclick="showDetails(7)">
+                <img src="https://imagizer.imageshack.com/img923/9196/u6W7nV.jpg" alt="Lubricante 7" class="product-image">
+                <h3 class="product-name">Lubricante Transparente</h3>
+                <p class="product-category">Transparentes</p>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="product-card" onclick="showDetails(8)">
+                <img src="https://imagizer.imageshack.com/img924/6853/0Gmqsr.jpg" alt="Lubricante 8" class="product-image">
+                <h3 class="product-name">Lubricante con Vitaminas</h3>
+                <p class="product-category">Con Vitaminas</p>
+            </div>
+
+            <!-- Producto 9 -->
+            <div class="product-card" onclick="showDetails(9)">
+                <img src="https://imagizer.imageshack.com/img924/2966/EmRwb9.jpg" alt="Lubricante 9" class="product-image">
+                <h3 class="product-name">Lubricante Sin Fragancia</h3>
+                <p class="product-category">Sin Fragancia</p>
+            </div>
+
+            <!-- Producto 10 -->
+            <div class="product-card" onclick="showDetails(10)">
+                <img src="https://imagizer.imageshack.com/img922/2649/d0l04p.jpg" alt="Lubricante 10" class="product-image">
+                <h3 class="product-name">Lubricante Extra Ligero</h3>
+                <p class="product-category">Extra Ligero</p>
+            </div>
+
+            <!-- Producto 11 -->
+            <div class="product-card" onclick="showDetails(11)">
+                <img src="https://imagizer.imageshack.com/img922/7663/dz7vFG.jpg" alt="Lubricante 11" class="product-image">
+                <h3 class="product-name">Lubricante Intense</h3>
+                <p class="product-category">Intense</p>
+            </div>
+
+            <!-- Producto 12 -->
+            <div class="product-card" onclick="showDetails(12)">
+                <img src="https://imagizer.imageshack.com/img923/1341/ueo2RQ.jpg" alt="Lubricante 12" class="product-image">
+                <h3 class="product-name">Lubricante Ultra Suave</h3>
+                <p class="product-category">Ultra Suaves</p>
+            </div>
+
+            <!-- Producto 13 -->
+            <div class="product-card" onclick="showDetails(13)">
+                <img src="https://imagizer.imageshack.com/img923/8108/oksK3B.jpg" alt="Lubricante 13" class="product-image">
+                <h3 class="product-name">Otro Lubricante Especial</h3>
+                <p class="product-category">Especiales</p>
+            </div>
+
+            <!-- Producto 14 -->
+            <div class="product-card" onclick="showDetails(14)">
+                <img src="https://imagizer.imageshack.com/img923/6882/hGZ0w5.jpg" alt="Lubricante 14" class="product-image">
+                <h3 class="product-name">Lubricante para Parejas</h3>
+                <p class="product-category">Para Parejas</p>
+            </div>
+
+            <!-- Producto 15 -->
+            <div class="product-card" onclick="showDetails(15)">
+                <img src="https://imagizer.imageshack.com/img922/1547/MeTD8M.jpg" alt="Lubricante 15" class="product-image">
+                <h3 class="product-name">Lubricante Hidratante</h3>
+                <p class="product-category">Hidratantes</p>
+            </div>
+
+            <!-- Producto 16 -->
+            <div class="product-card" onclick="showDetails(16)">
+                <img src="https://imagizer.imageshack.com/img923/9338/XNAppD.jpg" alt="Lubricante 16" class="product-image">
+                <h3 class="product-name">Lubricante Termosensible Plus</h3>
+                <p class="product-category">Innovadores</p>
+            </div>
+
+            <!-- Producto 17 -->
+            <div class="product-card" onclick="showDetails(17)">
+                <img src="https://imagizer.imageshack.com/img922/4082/BdZdtI.jpg" alt="Lubricante 17" class="product-image">
+                <h3 class="product-name">Lubricante Hipoalérgico Max</h3>
+                <p class="product-category">Para Pieles Sensibles</p>
+            </div>
+
+            <!-- Producto 18 -->
+            <div class="product-card" onclick="showDetails(18)">
+                <img src="https://imagizer.imageshack.com/img924/2999/cgmAN6.jpg" alt="Lubricante 18" class="product-image">
+                <h3 class="product-name">Lubricante Extra Duradero Pro</h3>
+                <p class="product-category">Long Lasting</p>
+            </div>
+
+            <!-- Producto 19 -->
+            <div class="product-card" onclick="showDetails(19)">
+                <img src="https://imagizer.imageshack.com/img923/3561/0BIthf.jpg" alt="Lubricante 19" class="product-image">
+                <h3 class="product-name">Lubricante Aromático Frutas</h3>
+                <p class="product-category">Aromáticos</p>
+            </div>
+
+            <!-- Producto 20 -->
+            <div class="product-card" onclick="showDetails(20)">
+                <img src="https://imagizer.imageshack.com/img924/4060/KKZBqL.jpg" alt="Lubricante 20" class="product-image">
+                <h3 class="product-name">Lubricante Silencioso Ultra</h3>
+                <p class="product-category">Silenciosos</p>
+            </div>
+
+            <!-- Producto 21 -->
+            <div class="product-card" onclick="showDetails(21)">
+                <img src="https://imagizer.imageshack.com/img923/5069/hQOK4x.jpg" alt="Lubricante 21" class="product-image">
+                <h3 class="product-name">Lubricante Transparente Clear</h3>
+                <p class="product-category">Transparentes</p>
+            </div>
+
+            <!-- Producto 22 -->
+            <div class="product-card" onclick="showDetails(22)">
+                <img src="https://imagizer.imageshack.com/img922/8849/8607iz.jpg" alt="Lubricante 22" class="product-image">
+                <h3 class="product-name">Lubricante con Vitaminas Vital</h3>
+                <p class="product-category">Con Vitaminas</p>
+            </div>
+
+            <!-- Producto 23 -->
+            <div class="product-card" onclick="showDetails(23)">
+                <img src="https://imagizer.imageshack.com/img923/2149/EUp2KU.jpg" alt="Lubricante 23" class="product-image">
+                <h3 class="product-name">Lubricante Sin Fragancia Pure</h3>
+                <p class="product-category">Sin Fragancia</p>
+            </div>
+
+            <!-- Producto 24 -->
+            <div class="product-card" onclick="showDetails(24)">
+                <img src="https://imagizer.imageshack.com/img922/1011/I9FC0C.jpg" alt="Lubricante 24" class="product-image">
+                <h3 class="product-name">Lubricante Extra Ligero Light</h3>
+                <p class="product-category">Extra Ligero</p>
+            </div>
+
+            <!-- Producto 25 (si lo necesitas, elimínalo si no) -->
+            <div class="product-card" onclick="showDetails(25)">
+                <img src="https://imagizer.imageshack.com/img924/8457/u1Ji71.png" alt="Lubricante 25" class="product-image">
+                <h3 class="product-name">Lubricante Especial Premium</h3>
+                <p class="product-category">Especiales</p>
+            </div>
         </div>
 
-        <!-- Secci�n Contacto -->
+        <!-- Sección Contacto -->
         <div class="contact-section" id="contacto">
             <h2>Contacto</h2>
-            <p class="contact-info">�Tienes preguntas? Cont�ctanos por WhatsApp:</p>
-            <a href="https://wa.me/[TU_NUMERO_WHATSAPP]" class="whatsapp-btn" target="_blank">
+            <p class="contact-info">¿Tienes preguntas? Contáctanos por WhatsApp:</p>
+            <a href="https://wa.me/+57314123456" class="whatsapp-btn" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
                     <path d="M13 7.078a.96.96 0 1 1 .011 1.74.92.92 0 0 1-.011-1.74zm-.192-.74l-.135-.756a.5.5 0 0 1 .083-.327l.3-.323a.5.5 0 0 1 .688 0l.3.323a.5.5 0 0 1-.083.327l-.135.756a.5.5 0 0 1-.642 0zm.655 1.33a.5.5 0 1 1-.801.393l-.047.865-.865.047-.865-.047.047-.865a.5.5 0 0 1.801-.393l.865.047.865-.047z"/>
                 </svg>
@@ -300,8 +478,8 @@
         </div>
     </div>
 
-    <!-- Bot�n WhatsApp fijo -->
-    <a href="https://wa.me/[TU_NUMERO_WHATSAPP]" class="whatsapp-btn" id="fixedWhatsApp" target="_blank">
+    <!-- Botón WhatsApp fijo (actualizado con el número) -->
+    <a href="https://wa.me/+57314123456" class="whatsapp-btn" id="fixedWhatsApp" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13 7.078a.96.96 0 1 1 .011 1.74.92.92 0 0 1-.011-1.74zm-.192-.74l-.135-.756a.5.5 0 0 1 .083-.327l.3-.323a.5.5 0 0 1 .688 0l.3.323a.5.5 0 0 1-.083.327l-.135.756a.5.5 0 0 1-.642 0zm.655 1.33a.5.5 0 1 1-.801.393l-.047.865-.865.047-.865-.047.047-.865a.5.5 0 0 1.801-.393l.865.047.865-.047z"/>
         </svg>
@@ -322,39 +500,358 @@
     </div>
 
     <script>
+        // Datos de productos (exactamente como estaban, solo actualizadas las imágenes)
         const products = [
-            { id: 1, name: "Lubricante Bio Natural", category: "Lubricantes Naturales", specs: [
-                "Base: Agua (sin aceite)",
-                "Volumen: 100ml",
-                "Ingredientes: Aloe vera y glicerina vegetal",
-                "Sin parabenos, fragancias artificiales o gluten",
-                "Ideal para uso diario y pieles sensibles",
-                "Compatibilidad: Con preservativos y juguetes de silicona"
-            ]},
-            { id: 2, name: "Lubricante Termosensible", category: "Innovadores", specs: [
-                "Base: Agua",
-                "Volumen: 120ml",
-                "Efecto: Se vuelve m�s espeso al calentarse",
-                "Fragancia: Desodorante suave",
-                "Sin parabenos ni componentes qu�micos irritantes",
-                "Ideal para estimulaci�n intensa"
-            ]},
-            { id: 3, name: "Lubricante Hipoal�rgico", category: "Para Pieles Sensibles", specs: [
-                "Base: Agua",
-                "Volumen: 90ml",
-                "Certificado hipoal�rgico (pruebas dermatol�gicas)",
-                "F�rmula ultra-suave",
-                "Sin colorantes ni alcoholes",
-                "Compatibilidad: Todos los materiales"
-            ]},
-            { id: 4, name: "Lubricante Extra Duradero", category: "Long Lasting", specs: [
-                "Base: Agua",
-                "Volumen: 150ml",
-                "Duraci�n: Hasta 3 horas de uso continuo",
-                "Fragancia: Aroma a frutas naturales",
-                "Sin parabenos, lactosa ni gluten",
-                "Limpio y f�cil de eliminar"
-            ]}
+            {
+                id: 1,
+                name: "Lubricante Bio Natural",
+                category: "Lubricantes Naturales",
+                specs: [
+                    "Base: Agua (sin aceite)",
+                    "Volumen: 100ml",
+                    "Ingredientes: Aloe vera y glicerina vegetal",
+                    "Sin parabenos, fragancias artificiales o gluten",
+                    "Ideal para uso diario y pieles sensibles",
+                    "Compatibilidad: Con preservativos y juguetes de silicona"
+                ],
+                image: "https://imagizer.imageshack.com/img923/9500/IRGErg.jpg"
+            },
+            {
+                id: 2,
+                name: "Lubricante Termosensible",
+                category: "Innovadores",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 120ml",
+                    "Efecto: Se vuelve más espeso al calentarse",
+                    "Fragancia: Desodorante suave",
+                    "Sin parabenos ni componentes químicos irritantes",
+                    "Ideal para estimulación intensa"
+                ],
+                image: "https://imagizer.imageshack.com/img924/6583/6VvzS5.jpg"
+            },
+            {
+                id: 3,
+                name: "Lubricante Hipoalérgico",
+                category: "Para Pieles Sensibles",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 90ml",
+                    "Certificado hipoalérgico (pruebas dermatológicas)",
+                    "Fórmula ultra-suave",
+                    "Sin colorantes ni alcoholes",
+                    "Compatibilidad: Todos los materiales"
+                ],
+                image: "https://imagizer.imageshack.com/img923/1117/agKxUC.jpg"
+            },
+            {
+                id: 4,
+                name: "Lubricante Extra Duradero",
+                category: "Long Lasting",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 150ml",
+                    "Duración: Hasta 3 horas de uso continuo",
+                    "Fragancia: Aroma a frutas naturales",
+                    "Sin parabenos, lactosa ni gluten",
+                    "Limpio y fácil de eliminar"
+                ],
+                image: "https://imagizer.imageshack.com/img924/4916/LJJb31.jpg"
+            },
+            {
+                id: 5,
+                name: "Lubricante Aromático",
+                category: "Aromáticos",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 80ml",
+                    "Fragancia: Aloe vera natural",
+                    "Sin parabenos",
+                    "Ideal para uso diario",
+                    "Compatibilidad: Preservativos"
+                ],
+                image: "https://imagizer.imageshack.com/img922/3376/0ArNOd.jpg"
+            },
+            {
+                id: 6,
+                name: "Lubricante Silencioso",
+                category: "Silenciosos",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 70ml",
+                    "Fórmula sin ruido",
+                    "Sin fragancia",
+                    "Hipoalérgico",
+                    "Ideal para parejas"
+                ],
+                image: "https://imagizer.imageshack.com/img923/5726/xGASed.jpg"
+            },
+            {
+                id: 7,
+                name: "Lubricante Transparente",
+                category: "Transparentes",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 60ml",
+                    "Color: Transparente",
+                    "Sin parabenos",
+                    "Ideal para uso discreto",
+                    "Compatibilidad: Silicona"
+                ],
+                image: "https://imagizer.imageshack.com/img923/9196/u6W7nV.jpg"
+            },
+            {
+                id: 8,
+                name: "Lubricante con Vitaminas",
+                category: "Con Vitaminas",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 100ml",
+                    "Ingredientes: Vitamina E y Aloe vera",
+                    "Nutritivo para la piel",
+                    "Sin fragancia",
+                    "Duración: 2 horas"
+                ],
+                image: "https://imagizer.imageshack.com/img924/6853/0Gmqsr.jpg"
+            },
+            {
+                id: 9,
+                name: "Lubricante Sin Fragancia",
+                category: "Sin Fragancia",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 110ml",
+                    "Fórmula sin aromas",
+                    "Hipoalérgico",
+                    "Ideal para sensibilidad al perfume",
+                    "Compatibilidad: Todos los materiales"
+                ],
+                image: "https://imagizer.imageshack.com/img924/2966/EmRwb9.jpg"
+            },
+            {
+                id: 10,
+                name: "Lubricante Extra Ligero",
+                category: "Extra Ligero",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 95ml",
+                    "Textura: Muy fluida",
+                    "Rapido absorción",
+                    "Sin parabenos",
+                    "Ideal para uso rápido"
+                ],
+                image: "https://imagizer.imageshack.com/img922/2649/d0l04p.jpg"
+            },
+            {
+                id: 11,
+                name: "Lubricante Intense",
+                category: "Intense",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 75ml",
+                    "Efecto: Aumento de sensibilidad",
+                    "Fragancia: Aromática intensa",
+                    "Sin gluten",
+                    "Certificado médico"
+                ],
+                image: "https://imagizer.imageshack.com/img922/7663/dz7vFG.jpg"
+            },
+            {
+                id: 12,
+                name: "Lubricante Ultra Suave",
+                category: "Ultra Suaves",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 85ml",
+                    "Fórmula ultra-suave",
+                    "Sin irritantes",
+                    "Ideal para piel delicada",
+                    "Compatibilidad: Preservativos y juguetes"
+                ],
+                image: "https://imagizer.imageshack.com/img923/1341/ueo2RQ.jpg"
+            },
+            {
+                id: 13,
+                name: "Otro Lubricante Especial",
+                category: "Especiales",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 65ml",
+                    "Efecto: Long lasting extra",
+                    "Fragancia: Discreta",
+                    "Sin parabenos",
+                    "Para uso prolongado"
+                ],
+                image: "https://imagizer.imageshack.com/img923/8108/oksK3B.jpg"
+            },
+            {
+                id: 14,
+                name: "Lubricante para Parejas",
+                category: "Para Parejas",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 120ml",
+                    "Fórmula compartida",
+                    "Ideal para juegos íntimos",
+                    "Sin parabenos",
+                    "Compatibilidad: Todas las superficies"
+                ],
+                image: "https://imagizer.imageshack.com/img923/6882/hGZ0w5.jpg"
+            },
+            {
+                id: 15,
+                name: "Lubricante Hidratante",
+                category: "Hidratantes",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 100ml",
+                    "Nutre y hidrata la piel",
+                    "Fragancia: Desodorante",
+                    "Sin alcoholes",
+                    "Ideal para aftercare"
+                ],
+                image: "https://imagizer.imageshack.com/img922/1547/MeTD8M.jpg"
+            },
+            {
+                id: 16,
+                name: "Lubricante Termosensible Plus",
+                category: "Innovadores",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 130ml",
+                    "Efecto: Aumento de textura al calentarse",
+                    "Fragancia: Frutas tropicales",
+                    "Sin parabenos",
+                    "Duración mejorada"
+                ],
+                image: "https://imagizer.imageshack.com/img923/9338/XNAppD.jpg"
+            },
+            {
+                id: 17,
+                name: "Lubricante Hipoalérgico Max",
+                category: "Para Pieles Sensibles",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 95ml",
+                    "Certificado hipoalérgico grado médico",
+                    "Fórmula sin derivados de leche",
+                    "Ideal para alergias severas",
+                    "Compatibilidad: Materiales blandos"
+                ],
+                image: "https://imagizer.imageshack.com/img922/4082/BdZdtI.jpg"
+            },
+            {
+                id: 18,
+                name: "Lubricante Extra Duradero Pro",
+                category: "Long Lasting",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 150ml",
+                    "Duración: Hasta 4 horas",
+                    "Fórmula resistente al sudor",
+                    "Sin gluten ni lactosa",
+                    "Limpio y sin residuos"
+                ],
+                image: "https://imagizer.imageshack.com/img924/2999/cgmAN6.jpg"
+            },
+            {
+                id: 19,
+                name: "Lubricante Aromático Frutas",
+                category: "Aromáticos",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 70ml",
+                    "Fragancia: Mezcla de frutas rojas",
+                    "Sin parabenos",
+                    "Ideal para uso con sabor",
+                    "Compatibilidad: Preservativos"
+                ],
+                image: "https://imagizer.imageshack.com/img923/3561/0BIthf.jpg"
+            },
+            {
+                id: 20,
+                name: "Lubricante Silencioso Ultra",
+                category: "Silenciosos",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 80ml",
+                    "Fórmula sin ruido de fricción",
+                    "Sin fragancia",
+                    "Hipoalérgico",
+                    "Ideal para parejas nocturnas"
+                ],
+                image: "https://imagizer.imageshack.com/img924/4060/KKZBqL.jpg"
+            },
+            {
+                id: 21,
+                name: "Lubricante Transparente Clear",
+                category: "Transparentes",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 60ml",
+                    "Color: Transparente",
+                    "Fragancia: Ninguna",
+                    "Sin parabenos",
+                    "Uso discreto y natural"
+                ],
+                image: "https://imagizer.imageshack.com/img923/5069/hQOK4x.jpg"
+            },
+            {
+                id: 22,
+                name: "Lubricante con Vitaminas Vital",
+                category: "Con Vitaminas",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 100ml",
+                    "Ingredientes: Vitamina E y aceite de coco",
+                    "Nutre y protege la piel",
+                    "Fragancia: Suave",
+                    "Ideal para uso diario"
+                ],
+                image: "https://imagizer.imageshack.com/img922/8849/8607iz.jpg"
+            },
+            {
+                id: 23,
+                name: "Lubricante Sin Fragancia Pure",
+                category: "Sin Fragancia",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 90ml",
+                    "Fórmula pura y sin aditivos",
+                    "Hipoalérgico",
+                    "Ideal para sensibilidad extrema",
+                    "Compatibilidad: Todos los materiales"
+                ],
+                image: "https://imagizer.imageshack.com/img923/2149/EUp2KU.jpg"
+            },
+            {
+                id: 24,
+                name: "Lubricante Extra Ligero Light",
+                category: "Extra Ligero",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 75ml",
+                    "Textura: Muy fluida y liviana",
+                    "Rapido absorción",
+                    "Sin parabenos ni colorantes",
+                    "Ideal para uso rápido y sin complicaciones"
+                ],
+                image: "https://imagizer.imageshack.com/img922/1011/I9FC0C.jpg"
+            },
+            {
+                id: 25,
+                name: "Lubricante Especial Premium",
+                category: "Especiales",
+                specs: [
+                    "Base: Agua",
+                    "Volumen: 50ml",
+                    "Efecto: Multi-sensibilidad",
+                    "Fragancia: Floral premium",
+                    "Certificado médico",
+                    "Para uso exclusivo"
+                ],
+                image: "https://imagizer.imageshack.com/img924/8457/u1Ji71.png"
+            }
         ];
 
         function showDetails(productId) {
@@ -364,8 +861,8 @@
             document.getElementById('modalProductName').textContent = product.name;
             document.getElementById('modalSpecs').innerHTML = product.specs.map(spec => `<li>${spec}</li>`).join('');
             
-            const whatsappText = encodeURIComponent(`Hola, me interesa el lubricante: ${product.name}. �Tienen stock disponible?`);
-            document.getElementById('whatsappLink').href = `https://wa.me/[TU_NUMERO_WHATSAPP]?text=${whatsappText}`;
+            const whatsappText = encodeURIComponent(`Hola, me interesa el lubricante: ${product.name}. ¿Tienen stock disponible?`);
+            document.getElementById('whatsappLink').href = `https://wa.me/+57314123456?text=${whatsappText}`;
             modal.style.display = 'block';
         }
 
